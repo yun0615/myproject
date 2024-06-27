@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // create an axios instance
 const service = axios.create({
+  // baseURL: 'https://scout12.69939.work',
   baseURL: 'https://scout12-backend.69939.work',
   timeout: 300000,
 });
@@ -10,6 +11,7 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
+    config.headers['Content-Type'] = 'application/json'
     return config
   },
   error => {

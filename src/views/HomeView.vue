@@ -463,7 +463,7 @@ export default {
     },
     async fetchData() {
       try {
-        const rs = await GetWorkShopAPI();
+        const rs = await GetWorkShopAPI({ time: moment().format('YYYY-MM-DD HH:mm:ss') });
         const data = rs.data.workshops;
         Object.keys(this.sections).forEach((key) => {
           Object.keys(this.sections[key]).forEach((mainObj) => {

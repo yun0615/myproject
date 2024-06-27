@@ -1,15 +1,16 @@
 import request from '@/utils/request';
 
-export function GetWorkShopAPI() {
+export function GetWorkShopAPI(data) {
   return request({
     url: '/api/getWorkShops',
-    method: 'get',
+    method: 'post',
+    data,
   });
 }
 
 export function GetWeatherAPI() {
   return request({
     url: '/api/getWeater',
-    method: 'get',
+    method: 'post',
   });
 }
