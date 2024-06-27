@@ -440,7 +440,7 @@ export default {
   mounted() {
     this.fetchData();
     this.fetchWeather();
-    this.intervalId = setInterval(this.fetchData, 10000);
+    this.intervalId = setInterval(this.fetchData, 3000);
   },
   beforeDestroy() {
     // 組件銷毀前清理定時器
@@ -486,14 +486,9 @@ export default {
             });
           });
         });
-        console.log(JSON.stringify(data));
-        console.log(Object.keys(this.sections));
         Object.keys(data).forEach((key) => {
           const mainData = data[key];
           const workshopArea = mainData.workshop_area.replaceAll(/\s+/g, '');
-          // console.log(this.sections);
-          console.log(workshopArea);
-          console.log(mainData);
           const { items } = this.sections[workshopArea]['1'];
           items[0].workshops[mainData.workshop_username] = {
             workshop: mainData.workshop_name,
